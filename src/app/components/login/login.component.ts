@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
           );
 
           if (matchedUser) {
-            // Generate token and set it in AuthService
             this.authService.login(matchedUser);
 
             alert('Login successful');

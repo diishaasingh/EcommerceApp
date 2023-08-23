@@ -10,17 +10,25 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsViewComponent } from './components/products-view/products-view.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CartComponent } from './components/cart/cart.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProductsViewComponent,
-    NavbarComponent
+    ProductDetailsComponent,
+    NavbarComponent,
+    CartComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +39,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatFormFieldModule,
     MatButtonModule,
     MatDividerModule,
+    MatToolbarModule,
+    MatCardModule,
     ReactiveFormsModule,
     HttpClientModule
   ],

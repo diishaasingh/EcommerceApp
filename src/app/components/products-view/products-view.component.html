@@ -1,1 +1,16 @@
-<p>products-view works!</p>
+<div class="product-list">
+    <div class="product" *ngFor="let product of products">
+      <mat-card class="product-card">
+        <img mat-card-image [src]="product.image" alt="Product">
+        <mat-card-content>
+          <h2>{{ product.title }}</h2>
+          <p>Price: {{ product.price }} USD</p>
+          <p>Category: {{ product.category }}</p>
+          <button mat-raised-button color="primary" type="viewDetails"  [routerLink]="['/product-details', product.id]">View Details</button>
+          <br><br>
+          <button mat-raised-button color="primary" type="addToCart">Add to Cart</button> 
+        </mat-card-content>
+      </mat-card>
+    </div>
+</div>
+  
