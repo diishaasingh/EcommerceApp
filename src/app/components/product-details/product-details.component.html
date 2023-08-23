@@ -1,1 +1,17 @@
-<p>product-details works!</p>
+<div class="product-details-container" *ngIf="product">
+  <div class="product-details">
+    <img [src]="product.image" alt="Product" class="product-image">
+    <div class="product-info">
+      <h2>{{ product.title }}</h2>
+      <p><b>Price:</b> {{ product.price }} USD</p>
+      <p><b>Description:</b> {{ product.description }}</p>
+      <p><b>Category:</b> {{ product.category }}</p>
+      <p *ngIf="product.rating"><b>Rating:</b> {{ product.rating.rate }}</p>
+      <p *ngIf="product.rating"><b>Rating Count:</b> {{ product.rating.count }}</p>
+      <br><br>
+      <div class="button">
+      <button mat-raised-button color="primary" type="addToCart">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
