@@ -30,7 +30,7 @@
     justify-content: center;
   }
   
-  button[type="addToCart"] {
+  button[type="addToCart"],button[type="viewCart"]{
     align-items: center;
     width: 20%;
     height: 2rem;
@@ -39,7 +39,11 @@
     background-color: rgb(40, 116, 240);
   }
 
-  .button {
+  .button1{
+    display: flex;
+    justify-content: center;
+  }
+  .button2{
     display: flex;
     justify-content: center;
   }

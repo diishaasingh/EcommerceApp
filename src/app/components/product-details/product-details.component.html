@@ -9,8 +9,12 @@
       <p *ngIf="product.rating"><b>Rating:</b> {{ product.rating.rate }}</p>
       <p *ngIf="product.rating"><b>Rating Count:</b> {{ product.rating.count }}</p>
       <br><br>
-      <div class="button">
-      <button mat-raised-button color="primary" type="addToCart">Add to Cart</button>
+      <div class="button1">
+        <button mat-raised-button color="primary" type="addToCart" (click)="onAddToCartClick()">Add to Cart</button>
+      </div>
+      <br>
+      <div class="button2">
+        <button mat-raised-button color="primary" type="viewCart" (click)="onViewCartClick()">View Cart</button>
       </div>
     </div>
   </div>

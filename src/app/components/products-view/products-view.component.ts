@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'; 
 import { ProductService } from 'src/app/services/product.service';
 import { IProduct } from 'src/app/models/products.model';
 
@@ -8,11 +9,9 @@ import { IProduct } from 'src/app/models/products.model';
   styleUrls: ['./products-view.component.css']
 })
 export class ProductsViewComponent implements OnInit {
-  @Output() viewDetails: EventEmitter<IProduct> = new EventEmitter<IProduct>();
   products: IProduct[] = [];
-  router: any;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {} 
 
   ngOnInit() {
     this.productService.getProducts().subscribe(
@@ -23,5 +22,9 @@ export class ProductsViewComponent implements OnInit {
         console.error('Error fetching products:', error);
       }
     );
+  }
+
+  goToProductDetails(productId: number) {
+    this.router.navigate(['/product-details', productId]);
   }
 }

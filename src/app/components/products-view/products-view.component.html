@@ -1,17 +1,16 @@
 <div class="product-list">
-  <div class="product" *ngFor="let product of products" >
-    <mat-card class="product-card" [routerLink]="['/product-details', product.id]">
-      <img mat-card-image [src]="product.image" alt="Product" class="product-image ">
+  <div class="product" *ngFor="let product of products">
+    <mat-card class="product-card">
+      <img mat-card-image [src]="product.image" alt="Product" class="product-image">
       <mat-card-content class="product-details">
         <h2>{{ product.title }}</h2>
         <p>Price: {{ product.price }} USD</p>
         <p>Category: {{ product.category }}</p>
         <div class="product-actions">
-        <br><br>
-        <button mat-raised-button color="primary" type="addToCart">Add to Cart</button>
-        </div> 
+          <br><br>
+          <button mat-raised-button color="primary" (click)="goToProductDetails(product.id)" type="viewDetails">View Details</button>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
 </div>
-
