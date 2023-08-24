@@ -12,6 +12,7 @@ import { IProduct } from 'src/app/models/products.model';
 export class ProductDetailsComponent implements OnInit {
   product: IProduct | undefined;
   id: string | null = '';
+  showMessage: boolean = false; // Add this flag
 
   constructor(
     private actRoute: ActivatedRoute,
@@ -40,11 +41,14 @@ export class ProductDetailsComponent implements OnInit {
   onAddToCartClick() {
     if (this.product) {
       this.cartService.addToCart(this.product);
+      this.showMessage = true; 
+      setTimeout(() => {
+        this.showMessage = false; 
+      }, 2000); 
     }
   }
 
   onViewCartClick() {
     this.router.navigate(['/cart', { productId: this.id }]);
   }
-  
 }

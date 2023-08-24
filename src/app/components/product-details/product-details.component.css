@@ -39,11 +39,15 @@
     background-color: rgb(40, 116, 240);
   }
 
-  .button1{
+  /* .button1{
     display: flex;
     justify-content: center;
   }
   .button2{
+    display: flex;
+    justify-content: center;
+  } */
+  .message{
     display: flex;
     justify-content: center;
   }

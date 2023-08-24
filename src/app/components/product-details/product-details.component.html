@@ -11,6 +11,10 @@
       <br><br>
       <div class="button1">
         <button mat-raised-button color="primary" type="addToCart" (click)="onAddToCartClick()">Add to Cart</button>
+        <br>
+        <div class="message" *ngIf="showMessage">
+          <b>Product added to cart! 🎉🎉</b>
+        </div>
       </div>
       <br>
       <div class="button2">
