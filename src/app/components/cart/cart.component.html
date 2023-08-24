@@ -13,7 +13,7 @@
             <button (click)="decrement(productId)">-</button>
           </div>
           <p>Total: {{ calculateTotal(productId) }} USD</p>
-          <button mat-raised-button color="primary" type="buyNow" (click)="buyNow(productId)">Buy Now</button>
+          <button mat-raised-button color="primary" type="buyNow" (click)="(productId)">Buy Now</button>
           <br><br>
           <button mat-raised-button color="primary" type="removeFromCart" (click)="removeFromCart(productId)">Remove from cart</button>
         </div>

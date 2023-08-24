@@ -1,0 +1,27 @@
+.custom-mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .custom-mat-select {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .mat-option {
+    font-size: 16px;
+  }
+  
+  .mat-select-value {
+    color: #333;
+  }
+  
+  .mat-select-arrow {
+    color: #666;
+  }
+  

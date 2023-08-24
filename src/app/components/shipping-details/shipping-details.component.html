@@ -1,1 +1,45 @@
-<p>shipping-details works!</p>
+<div class="container">
+    <h2>Shipping Details</h2>
+    <p>Delivering happiness to your doorsteps😊😊</p>
+    <form [formGroup]="shippingDetailsForm" (ngSubmit)="onSubmit()" >
+      <div formGroupName="shippingData">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" formControlName="name" placeholder="Name" required="true">
+          <mat-icon matSuffix></mat-icon>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <!-- <textarea matInput></textarea> -->
+            <input matInput type="textarea" formControlName="address" placeholder="Address" required="true">
+
+          </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Pin Code</mat-label>
+          <input matInput type="text" formControlName="pincode" placeholder="PINCODE" required="true">
+          <mat-icon matSuffix></mat-icon>
+        </mat-form-field>
+      </p>
+      
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Contact Number</mat-label>
+          <input matInput  type="text" formControlName="contact" placeholder="Contact Number" required="true">
+          <mat-icon matSuffix></mat-icon>
+        </mat-form-field>
+      </p>
+
+    </div>
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" type="submit" [disabled]="shippingDetailsForm.invalid">Submit</button>
+      </div>
+    </form>
+  </div>
+  <router-outlet></router-outlet>
+  

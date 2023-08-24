@@ -3,12 +3,12 @@ import { IProduct } from 'src/app/models/products.model';
 import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit {
   cartItems: IProduct[] = [];
   countMap: Map<number, number> = new Map(); //key- product.id, value- freq
@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
     this.cartItems = this.cartService.getCartItems(); 
     this.buildCountMap();
   }
-
+  
   buildCountMap() {
     this.countMap.clear(); 
     for (const item of this.cartItems) {
@@ -31,7 +31,6 @@ export class CartComponent implements OnInit {
       }
     }
   }
-
   getProductFrequency(productId: number): number {
     return this.countMap.get(productId) || 0;
   }
@@ -71,8 +70,10 @@ export class CartComponent implements OnInit {
     }
     return 0;
   }
+
   buyNow(productId:number){
     const grandTotal = this.calculateTotal(productId);
+    //this.removeFromCart(productId);
     this.router.navigate(['/shipping-details'], { queryParams: { total: grandTotal } });
   }
 

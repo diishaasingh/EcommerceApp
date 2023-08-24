@@ -12,6 +12,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsViewComponent } from './components/products-view/products-view.component';
@@ -47,6 +48,7 @@ import { PaymentDetailsComponent } from './components/payment-details/payment-de
     MatDividerModule,
     MatToolbarModule,
     MatCardModule,
+    MatSelectModule,
     ReactiveFormsModule,
     HttpClientModule
   ],
