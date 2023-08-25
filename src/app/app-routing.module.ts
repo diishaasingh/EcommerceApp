@@ -10,12 +10,13 @@ import { PaymentDetailsComponent } from './components/payment-details/payment-de
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 
 const routes: Routes = [
-  {path:'', component:LoginComponent},
-  {path:'products', component:ProductsViewComponent, canActivate:[authGuard]} ,
-  {path: 'product-details/:id', component: ProductDetailsComponent },
-  {path: 'cart', component:CartComponent},
+  {path:'login', component:LoginComponent},
+  {path:'', component:ProductsViewComponent},
+  {path:'products', component:ProductsViewComponent} ,
+  {path:'product-details/:id', component: ProductDetailsComponent,canActivate:[authGuard]},
+  {path:'cart', component:CartComponent},
   {path:'shipping-details',component:ShippingDetailsComponent},
-  {path:'payment-details',component:PaymentDetailsComponent},
+  {path: 'payment-details', component: PaymentDetailsComponent },
   {path:'order-summary',component:OrderSummaryComponent}
 ];
 
@@ -24,3 +25,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

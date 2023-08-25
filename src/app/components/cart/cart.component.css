@@ -49,8 +49,17 @@
     border: 1px solid rgb(40, 116, 240);
     border-radius: 2%;
   }
-  button[type="removeFromCart"],button[type="buyNow" ]{
+  button[type="removeFromCart"],button[type="buyNow" ],button[type="buyAll"]{
     align-items: center;
+    width: 100%;
+    height: 2rem;
+    font-size: 1rem;
+    color: whitesmoke;
+    background-color: rgb(40, 116, 240);
+  }
+  button[type="buyAll"]{
+    align-items: center;
+    margin-left: 4%;
     width: 100%;
     height: 2rem;
     font-size: 1rem;

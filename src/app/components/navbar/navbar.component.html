@@ -1,15 +1,16 @@
 <mat-toolbar color="primary" class="toolbar">
-    <div>
-      <button mat-icon-button>
-        <mat-icon class="mat-18">menu</mat-icon>
-      </button>
-    </div>
-    <div><a routerLink="/products">Apni Dukaan</a></div>
-    <div>
-      <ul class="nav-items">
-        <li><a routerLink="/dashboard">Dashboard</a></li>
-        <li><a routerLink="/products">Products</a></li>
-        <li><a routerLink="/cart">Cart</a></li>
-      </ul>
-    </div>
+  <div>
+    <button mat-icon-button>
+      <mat-icon class="mat-18">menu</mat-icon>
+    </button>
+  </div>
+  <div><a routerLink="/products">Apni Dukaan</a></div>
+  <div>
+    <ul class="nav-items">
+      <li><a routerLink="/products">Products</a></li>
+      <li class="cart"><a routerLink="/cart">Cart</a></li>
+      <li class="login"  *ngIf="!authService.isAuthenticated()"><a routerLink="/login">Login</a></li>
+      <li class="login" *ngIf="authService.isAuthenticated()"><button (click)="logout()">Logout</button></li>
+    </ul>
+  </div>
 </mat-toolbar>

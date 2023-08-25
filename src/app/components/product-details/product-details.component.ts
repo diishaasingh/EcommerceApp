@@ -12,7 +12,7 @@ import { IProduct } from 'src/app/models/products.model';
 export class ProductDetailsComponent implements OnInit {
   product: IProduct | undefined;
   id: string | null = '';
-  showMessage: boolean = false; // Add this flag
+  showMessage: boolean = false; 
 
   constructor(
     private actRoute: ActivatedRoute,

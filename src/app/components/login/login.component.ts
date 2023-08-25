@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -37,26 +36,26 @@ export class LoginComponent implements OnInit {
       const enteredUsername = this.loginForm.get('userData.username')?.value;
       const enteredPassword = this.loginForm.get('userData.password')?.value;
 
-      this.authService.getUsers().pipe(
-        tap(users => {
-          const matchedUser = users.find(
-            user =>
-              user.username === enteredUsername &&
-              user.password === enteredPassword
-          );
+      this.authService.login({ username: enteredUsername, password: enteredPassword })
+  .subscribe(
+    response => {
+      const token = response.token;
+      if (token) {
+        this.authService.setAuthToken(token); 
+        alert('Login successful');
+        this.loginForm.reset();
+        this.router.navigate(['/products']);
+      } else {
+        alert('Invalid login credentials');
+        this.loginForm.reset();
+      }
+    },
+    error => {
+      console.log('Error:', error);
+      alert('An error occurred during login');
+    }
+  );
 
-          if (matchedUser) {
-            this.authService.login(matchedUser);
-
-            alert('Login successful');
-            this.loginForm.reset();
-            this.router.navigate(['/products']);
-          } else {
-            alert('Invalid login credentials');
-            this.loginForm.reset();
-          }
-        })
-      ).subscribe();
     }
   }
 }

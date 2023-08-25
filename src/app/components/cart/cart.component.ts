@@ -35,15 +35,22 @@ export class CartComponent implements OnInit {
     return this.countMap.get(productId) || 0;
   }
 
-  increment(productId: number) {
-    this.countMap.set(productId, this.countMap.get(productId)! + 1);
+  increment(productId: number) {   
+      const product = this.getProduct(productId); 
+      if (product) {
+        this.countMap.set(productId, this.countMap.get(productId)! + 1);
+        this.cartService.addToCart(product);
+      }   
   }
 
   decrement(productId: number) {
-    this.countMap.set(productId, this.countMap.get(productId)! - 1);
-    if(this.countMap.get(productId) === 0){
-      this.removeFromCart(productId);
-    }
+    const product = this.getProduct(productId); 
+      if (product) {
+        this.countMap.set(productId, this.countMap.get(productId)! - 1);
+        if(this.countMap.get(productId) === 0){
+          this.removeFromCart(productId);
+        }
+      }   
   }
 
   countMapKeys(): number[] {

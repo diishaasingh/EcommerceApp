@@ -13,16 +13,15 @@
       <p>
         <mat-form-field appearance="outline">
             <mat-label>Address</mat-label>
-            <!-- <textarea matInput></textarea> -->
             <input matInput type="textarea" formControlName="address" placeholder="Address" required="true">
-
+            <mat-icon matSuffix></mat-icon>
           </mat-form-field>
       </p>
 
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Pin Code</mat-label>
-          <input matInput type="text" formControlName="pincode" placeholder="PINCODE" required="true">
+          <input matInput type="number" formControlName="pincode" placeholder="PINCODE" required="true">
           <mat-icon matSuffix></mat-icon>
         </mat-form-field>
       </p>
@@ -30,7 +29,7 @@
       <p>
         <mat-form-field appearance="outline">
           <mat-label>Contact Number</mat-label>
-          <input matInput  type="text" formControlName="contact" placeholder="Contact Number" required="true">
+          <input matInput  type="number" formControlName="contact" placeholder="Contact Number" required="true">
           <mat-icon matSuffix></mat-icon>
         </mat-form-field>
       </p>
@@ -41,5 +40,4 @@
       </div>
     </form>
   </div>
-  <router-outlet></router-outlet>
-  
+  <!-- <router-outlet></router-outlet> -->

@@ -13,14 +13,14 @@
             <button (click)="decrement(productId)">-</button>
           </div>
           <p>Total: {{ calculateTotal(productId) }} USD</p>
-          <button mat-raised-button color="primary" type="buyNow" (click)="(productId)">Buy Now</button>
+          <button mat-raised-button color="primary" type="buyNow" (click)="buyNow(productId)">Buy Now</button>
           <br><br>
           <button mat-raised-button color="primary" type="removeFromCart" (click)="removeFromCart(productId)">Remove from cart</button>
         </div>
       </div>
     </div>
   <div class="total">
-  <button mat-raised-button color="primary" type="buyAll" (click)="buyAll()">Buy All</button>
+  <button mat-raised-button color="primary" type="buyAll" *ngIf="cartItems.length > 0" (click)="buyAll()">Buy All</button>
   <p>Grand total: {{ calculateGrandTotal() }} USD</p>
   </div>
 
