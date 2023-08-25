@@ -1,16 +1,14 @@
-<!-- <app-navbar></app-navbar> -->
-
-<div class="container">
-  <h2>Proceed to payment details</h2>
-<mat-form-field class="custom-mat-form-field">
-    <mat-label>Select Payment Method</mat-label>
-    <mat-select class="custom-mat-select">
-      <mat-option value="one">UPI</mat-option>
-      <mat-option value="two">Wallet/Postpaid</mat-option>
-      <mat-option value="three">Credit/Debit/ATM Card</mat-option>
-      <mat-option value="four">Net Banking</mat-option>
-      <mat-option value="five">Cash on Delivery</mat-option>
-      <mat-option value="six">EMI (Easy Installments)</mat-option>
-    </mat-select>
-</mat-form-field>
-</div>
+<form [formGroup]="paymentForm" (ngSubmit)="onSubmitPayment()" class="form">
+  <mat-form-field class="mat-form-field ">
+    <input matInput id="card-number" formControlName="cardNumber" required>
+    <mat-label>Card Number</mat-label>
+  </mat-form-field>
+  <mat-form-field class="mat-form-field ">
+    <input matInput id="expiration-date" formControlName="expirationDate" required>
+    <mat-label>Expiration Date</mat-label>
+  </mat-form-field>
+  <mat-form-field class="mat-form-field ">
+    <input matInput id="cvv" formControlName="cvv" required>
+    <mat-label>CVV</mat-label>
+  </mat-form-field>
+</form>

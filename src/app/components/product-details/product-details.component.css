@@ -1,9 +1,10 @@
 .product-details-container {
-  position: absolute;
+  /* position: absolute; */
     /* display: flex; */
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin-top: 15rem;
   }
   
   .product-details {

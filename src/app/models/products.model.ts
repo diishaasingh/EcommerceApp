@@ -1,3 +1,5 @@
+import { IRating } from "./rating.model";
+
 export interface IProduct {
     id: number;
     title: string;
@@ -5,9 +7,6 @@ export interface IProduct {
     description: string;
     category: string;
     image: string;
-    rating: {
-      rate: number;
-      count: number;
-    };
+    rating: IRating
   }
   

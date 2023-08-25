@@ -1,22 +1,25 @@
-<mat-toolbar color="primary" class="toolbar">
-  <div>
-    <button mat-icon-button>
-      <mat-icon class="mat-18">menu</mat-icon>
-    </button>
-  </div>
-  <div><a routerLink="/products">Apni Dukaan</a></div>
-  <div class="list">
-    <ul class="nav-items">
-      <li><a routerLink="/products">Products</a></li>
-      <li class="cart" *ngIf="isAuthenticated()">
-        <a routerLink="/cart">Cart</a>
-      </li>
-      <li class="login" *ngIf="!isAuthenticated()">
-        <a routerLink="/login">Login</a>
-      </li>
-      <li class="login" *ngIf="isAuthenticated()">
-        <button (click)="logout()">Logout</button>
-      </li>
-    </ul>
+<mat-toolbar color="primary" class="mat-toolbar">
+  <div class="toolbar">
+    <div class="left">
+      <button mat-icon-button>
+        <mat-icon class="mat-18">menu</mat-icon>
+      </button>
+      <a routerLink="/products" routerLinkActive="active-link">Apni Dukaan</a>
+    </div>
+
+    <div class="right">
+      <ul class="nav-items">
+        <li><a routerLink="/products" routerLinkActive="active-link">Products</a></li>
+        <li class="cart" *ngIf="isAuthenticated()">
+          <a routerLink="/cart" routerLinkActive="active-link">Cart</a>
+        </li>
+        <li class="login" *ngIf="!isAuthenticated()">
+          <a routerLink="/login" routerLinkActive="active-link">Login</a>
+        </li>
+        <li class="login" *ngIf="isAuthenticated()">
+          <button (click)="logout()">Logout</button>
+        </li>
+      </ul>
+    </div>
   </div>
 </mat-toolbar>
