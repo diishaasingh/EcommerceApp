@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       const token = response.token;
       if (token) {
         this.authService.setAuthToken(token); 
-        alert('Login successful');
+        // alert('Login successful');
         this.loginForm.reset();
         this.router.navigate(['/products']);
       } else {

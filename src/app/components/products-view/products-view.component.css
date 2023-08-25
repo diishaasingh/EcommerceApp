@@ -1,14 +1,19 @@
 .product-list {
     display: flex;
     flex-wrap: wrap;
+    /* margin-top: 4rem; */
+    margin-top: -2rem;
+    position: absolute;
+    width: 100%;
     gap: 20px;
     padding: 20px;
   }
   
   .product {
     flex: 1;
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 400px;
+    max-width: 400px;
+    text-align: center;
     
   }
   
@@ -26,7 +31,9 @@
     width: 100%;
   }
   
-  
+  .product-actions{
+    align-items: baseline;
+  }
   .mat-card-content {
     flex: 1;
     padding: 10px;
@@ -40,7 +47,7 @@
     color: whitesmoke;
     background-color: rgb(40, 116, 240);
   }
-  
+
   img{
     height: 250px;
     width: 250px;

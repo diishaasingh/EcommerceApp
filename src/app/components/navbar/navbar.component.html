@@ -5,12 +5,18 @@
     </button>
   </div>
   <div><a routerLink="/products">Apni Dukaan</a></div>
-  <div>
+  <div class="list">
     <ul class="nav-items">
       <li><a routerLink="/products">Products</a></li>
-      <li class="cart"><a routerLink="/cart">Cart</a></li>
-      <li class="login"  *ngIf="!authService.isAuthenticated()"><a routerLink="/login">Login</a></li>
-      <li class="login" *ngIf="authService.isAuthenticated()"><button (click)="logout()">Logout</button></li>
+      <li class="cart" *ngIf="isAuthenticated()">
+        <a routerLink="/cart">Cart</a>
+      </li>
+      <li class="login" *ngIf="!isAuthenticated()">
+        <a routerLink="/login">Login</a>
+      </li>
+      <li class="login" *ngIf="isAuthenticated()">
+        <button (click)="logout()">Logout</button>
+      </li>
     </ul>
   </div>
 </mat-toolbar>

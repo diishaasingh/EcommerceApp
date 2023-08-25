@@ -1,16 +1,18 @@
 .toolbar{   
   background-color: rgb(40, 116, 240);
-}
-mat-toolbar {
-  margin-bottom: 50px;
+  width: auto;
   /* position: fixed;
   z-index: 1000; */
 }
-
+mat-toolbar {
+  margin-bottom: 50px
+}
+.list{
+ margin-left: 50%;
+}
 a {
   text-decoration: none;
   color: white;
-  
 }
 
 .nav-items {
@@ -19,14 +21,14 @@ a {
   justify-content: space-between;
 }
 
-li{
+/* li{
 margin-left: 30px;
 margin-right: 30px;
-}
+} */
 .cart{
   margin-left: 80%;
 }
 .login{
-  margin-left:90%;
+  margin-left:100%;
 }
  
