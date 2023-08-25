@@ -10,87 +10,58 @@ import { Router } from '@angular/router';
 })
 
 export class CartComponent implements OnInit {
-  cartItems: IProduct[] = [];
-  countMap: Map<number, number> = new Map(); //key- product.id, value- freq
+  cart: Map<IProduct, number> = new Map(); // Key: product, Value: frequency
 
   constructor(private cartService: CartService, private router: Router) {}
 
- 
   ngOnInit() {
-    this.cartItems = this.cartService.getCartItems(); 
-    this.buildCountMap();
+    this.cart = this.cartService.getCartItems(); 
   }
   
-  buildCountMap() {
-    this.countMap.clear(); 
-    for (const item of this.cartItems) {
-      if (this.countMap.has(item.id)) {
-        this.countMap.set(item.id, this.countMap.get(item.id)! + 1); 
+  getProductFrequency(product: IProduct): number {
+    return this.cart.get(product) || 0;
+  }
+
+  increment(product: IProduct) {   
+    if (this.cart.has(product)) {
+      this.cart.set(product, this.cart.get(product)! + 1);
+      this.cartService.addToCart(product);
+    }   
+  }
+
+  decrement(product: IProduct) {
+    if (this.cart.has(product)) {
+      const frequency = this.cart.get(product)!;
+      if (frequency === 1) {
+        this.removeFromCart(product);
       } else {
-        this.countMap.set(item.id, 1); 
+        this.cart.set(product, frequency - 1);
       }
-    }
-  }
-  getProductFrequency(productId: number): number {
-    return this.countMap.get(productId) || 0;
+    }   
   }
 
-  increment(productId: number) {   
-      const product = this.getProduct(productId); 
-      if (product) {
-        this.countMap.set(productId, this.countMap.get(productId)! + 1);
-        this.cartService.addToCart(product);
-      }   
+  cartItems(): IProduct[] {
+    return Array.from(this.cart.keys());
   }
 
-  decrement(productId: number) {
-    const product = this.getProduct(productId); 
-      if (product) {
-        this.countMap.set(productId, this.countMap.get(productId)! - 1);
-        if(this.countMap.get(productId) === 0){
-          this.removeFromCart(productId);
-        }
-      }   
+  removeFromCart(product: IProduct) {
+    this.cart.delete(product);
   }
 
-  countMapKeys(): number[] {
-    return Array.from(this.countMap.keys());
+  calculateTotal(product: IProduct): number {
+    const frequency = this.cart.get(product) || 0;
+    return product.price * frequency;
   }
 
-  getProduct(productId: number): IProduct | undefined {
-    return this.cartItems.find(item => item.id === productId);
-  }
-
-  removeFromCart(productId: number) {
-    const index = this.cartItems.findIndex(item => item.id === productId);
-    if (index !== -1) {
-      this.cartItems.splice(index, 1);
-      this.countMap.delete(productId);
-    }
-  }
-
-  calculateTotal(productId: number): number {
-    const product = this.getProduct(productId);
-    if (product) {
-      const frequency = this.countMap.get(productId) || 0;
-      return product.price * frequency;
-    }
-    return 0;
-  }
-
-  buyNow(productId:number){
-    const grandTotal = this.calculateTotal(productId);
-    //this.removeFromCart(productId);
+  buyNow(product: IProduct){
+    const grandTotal = this.calculateTotal(product);
     this.router.navigate(['/shipping-details'], { queryParams: { total: grandTotal } });
   }
 
   calculateGrandTotal(): number {
     let grandTotal = 0;
-    for (const [productId, frequency] of this.countMap.entries()) {
-      const product = this.getProduct(productId);
-      if (product) {
-        grandTotal += product.price * frequency;
-      }
+    for (const [product, frequency] of this.cart.entries()) {
+      grandTotal += product.price * frequency;
     }
     return grandTotal;
   }
@@ -98,7 +69,5 @@ export class CartComponent implements OnInit {
   buyAll() {
     const grandTotal = this.calculateGrandTotal();
     this.router.navigate(['/shipping-details'], { queryParams: { total: grandTotal } });
-    // this.countMap.clear();
-    // this.cartItems = [];
   }
 }

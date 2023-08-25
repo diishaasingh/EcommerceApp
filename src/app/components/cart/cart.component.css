@@ -49,7 +49,7 @@
     border: 1px solid rgb(40, 116, 240);
     border-radius: 2%;
   }
-  button[type="removeFromCart"],button[type="buyNow" ],button[type="buyAll"]{
+  button[type="button"]{
     align-items: center;
     width: 100%;
     height: 2rem;

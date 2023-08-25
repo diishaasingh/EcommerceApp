@@ -5,14 +5,17 @@ import { IProduct } from '../models/products.model';
   providedIn: 'root'
 })
 export class CartService {
-  private cart: IProduct[] = [];
-  private countMap: Map<number, number> = new Map(); //key- product.id, value- freq
+  private cart: Map<IProduct, number> = new Map(); // Key: product, Value: frequency
 
   addToCart(product: IProduct) {
-    this.cart.push(product);
+    if (this.cart.has(product)) {
+      this.cart.set(product, this.cart.get(product)! + 1);
+    } else {
+      this.cart.set(product, 1);
+    }
   }
 
-  getCartItems(): IProduct[] {
+  getCartItems(): Map<IProduct, number> {
     return this.cart;
   }
   
