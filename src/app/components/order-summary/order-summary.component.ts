@@ -10,7 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./order-summary.component.css']
 })
 export class OrderSummaryComponent implements OnInit {
-  shippingData: IShippingData | undefined;
+  shippingData!: IShippingData ;
   showMessage: boolean = false; 
 
   constructor(

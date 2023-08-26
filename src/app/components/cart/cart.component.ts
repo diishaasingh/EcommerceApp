@@ -24,7 +24,6 @@ export class CartComponent implements OnInit {
 
   increment(product: IProduct) {   
     if (this.cart.has(product)) {
-      this.cart.set(product, this.cart.get(product)! + 1);
       this.cartService.addToCart(product);
     }   
   }
@@ -50,8 +49,10 @@ export class CartComponent implements OnInit {
 
   calculateTotal(product: IProduct): number {
     const frequency = this.cart.get(product) || 0;
-    return product.price * frequency;
+    const total = product.price * frequency;
+    return Number(total.toFixed(2));
   }
+  
 
   buyNow(product: IProduct){
     const grandTotal = this.calculateTotal(product);
@@ -63,7 +64,7 @@ export class CartComponent implements OnInit {
     for (const [product, frequency] of this.cart.entries()) {
       grandTotal += product.price * frequency;
     }
-    return grandTotal;
+    return Number(grandTotal.toFixed(2));
   }
 
   buyAll() {

@@ -1,46 +1,52 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IUser } from '../models/users.model'; 
+import { IUser } from '../models/users.model';
+import { IResponse } from '../models/response.model';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private url = 'https://fakestoreapi.com/auth/login'; 
-  private authTokenKey = 'authToken';
+  private baseUrl: string = environment.baseUrl;
 
-  constructor(private http: HttpClient) { }
+  private url = `${this.baseUrl}/auth/login`;
+  private AUTH_TOKEN = 'authToken';
+  private USERNAME = 'USERNAME';
 
-  login(data: IUser): Observable<any> {
+  constructor(private http: HttpClient) {}
+
+  login(data: IUser): Observable<IResponse> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-
-    return this.http.post(this.url, data, httpOptions);
+    return this.http.post<IResponse>(this.url, data, httpOptions);
   }
 
   setAuthToken(token: string): void {
-    localStorage.setItem(this.authTokenKey, token);
+    localStorage.setItem(this.AUTH_TOKEN, token);
   }
 
   getAuthToken(): string | null {
-    return localStorage.getItem(this.authTokenKey);
+    return localStorage.getItem(this.AUTH_TOKEN);
   }
 
   removeAuthToken(): void {
-    localStorage.removeItem(this.authTokenKey);
+    localStorage.removeItem(this.AUTH_TOKEN);
+    localStorage.removeItem(this.USERNAME);
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getAuthToken();
   }
 
   logout(): void {
     this.removeAuthToken();
   }
 
-  isAuthenticated(): boolean {
-    return !!this.getAuthToken();
-  }
+  
 }
-
 

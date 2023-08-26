@@ -1,10 +1,10 @@
 <div class="order-summary">
     <h2>Order Summary</h2>
     <h3>Shipping Details:</h3>
-    <p>Name: {{ shippingData?.name }}</p>
-    <p>Address: {{ shippingData?.address }}</p>
-    <p>Pincode: {{ shippingData?.pincode }}</p>
-    <p>Contact: {{ shippingData?.contact }}</p>
+    <p>Name: {{ shippingData.name }}</p>
+    <p>Address: {{ shippingData.address }}</p>
+    <p>Pincode: {{ shippingData.pincode }}</p>
+    <p>Contact: {{ shippingData.contact }}</p>
   
     <h3>Order Details:</h3>
     <div *ngFor="let product of cartItemsKeys()">

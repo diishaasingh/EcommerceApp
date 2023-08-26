@@ -24,6 +24,11 @@ import { ShippingDetailsComponent } from './components/shipping-details/shipping
 import { PaymentDetailsComponent } from './components/payment-details/payment-details.component';
 
 
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import {NgIf} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import { SuccessComponent } from './components/success/success.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +41,7 @@ import { PaymentDetailsComponent } from './components/payment-details/payment-de
     OrderSummaryComponent,
     ShippingDetailsComponent,
     PaymentDetailsComponent,
+    SuccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,7 @@ import { PaymentDetailsComponent } from './components/payment-details/payment-de
     MatCardModule,
     MatSelectModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule, MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

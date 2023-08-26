@@ -10,7 +10,7 @@ import { IProduct } from 'src/app/models/products.model';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  product: IProduct | undefined;
+  product!: IProduct ;
   id: string | null = '';
   showMessage: boolean = false; 
 

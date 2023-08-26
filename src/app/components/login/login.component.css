@@ -18,7 +18,7 @@ form {
   margin-top: 20px;
 }
 
-mat-form-field {
+.mat-form-field {
   width: 100%;
   margin-bottom: 15px;
 }
@@ -27,6 +27,10 @@ button[type="submit"] {
   width: 100%;
   color: whitesmoke;
   background-color: rgb(40, 116, 240);
+}
+
+.error{
+  color: red;
 }
 
 @media screen and (max-width: 600px) {

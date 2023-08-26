@@ -10,8 +10,10 @@
     <div class="right">
       <ul class="nav-items">
         <li><a routerLink="/products" routerLinkActive="active-link">Products</a></li>
-        <li class="cart" *ngIf="isAuthenticated()">
-          <a routerLink="/cart" routerLinkActive="active-link">Cart</a>
+        <li class="cart" >
+          <a routerLink="/cart" routerLinkActive="active-link">
+            <mat-icon class="mat-18">shopping_cart</mat-icon>
+          </a>
         </li>
         <li class="login" *ngIf="!isAuthenticated()">
           <a routerLink="/login" routerLinkActive="active-link">Login</a>

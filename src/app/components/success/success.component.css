@@ -1,0 +1,8 @@
+.success{
+    align-items: center;
+    text-align: center;
+}
+.check{
+    min-width: 10rem;
+    max-width: 10rem;
+}

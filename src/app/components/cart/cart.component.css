@@ -6,7 +6,10 @@
     width: 100%;
     /* padding: 20px; */
   }
-  
+ .cart{
+  display: flex;
+  justify-content: space-evenly;
+ } 
   .cart-item {
     display: flex;
     align-items: center;
@@ -57,12 +60,12 @@
     color: whitesmoke;
     background-color: rgb(40, 116, 240);
   }
-  button[type="buyAll"]{
+  /* button[type="buyAll"]{
     align-items: center;
-    margin-left: 4%;
+    margin-left: 5%;
     width: 100%;
     height: 2rem;
     font-size: 1rem;
     color: whitesmoke;
     background-color: rgb(40, 116, 240);
-  }
+  } */

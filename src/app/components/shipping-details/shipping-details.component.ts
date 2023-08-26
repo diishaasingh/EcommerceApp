@@ -35,4 +35,9 @@ export class ShippingDetailsComponent implements OnInit {
       });
     }
   }
+
+  isFieldInvalid(fieldName: string): boolean {
+    const control = this.shippingDetailsForm.get(fieldName);
+    return !!control && control.invalid && (control.dirty || control.touched);
+  }
 }

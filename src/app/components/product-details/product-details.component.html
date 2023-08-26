@@ -12,7 +12,9 @@
       <p *ngIf="product.rating"><b>Rating Count:</b> {{ product.rating.count }}</p>
       <br><br>
       <div class="button1">
-        <button mat-raised-button color="primary" type="addToCart" (click)="onAddToCartClick()">Add to Cart</button>
+        <button mat-raised-button color="primary" type="addToCart" (click)="onAddToCartClick()">
+         <p>Add to <mat-icon class="mat-18">shopping_cart</mat-icon></p> 
+        </button>
         <br>
         <div class="message" *ngIf="showMessage">
           <b>Product added to cart! 🎉🎉</b>
@@ -20,7 +22,9 @@
       </div>
       <br>
       <div class="button2">
-        <button mat-raised-button color="primary" type="viewCart" (click)="onViewCartClick()">View Cart</button>
+        <button mat-raised-button color="primary" type="viewCart" (click)="onViewCartClick()">
+          <p>View  <mat-icon class="mat-18">shopping_cart</mat-icon></p>
+        </button>
       </div>
     </div>
   </div>
