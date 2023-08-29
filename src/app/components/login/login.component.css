@@ -1,0 +1,41 @@
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+p{
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  color: whitesmoke;
+  background-color: rgb(40, 116, 240);
+}
+
+.error{
+  color: red;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+}

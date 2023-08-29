@@ -1,0 +1,27 @@
+<mat-toolbar color="primary" class="mat-toolbar">
+  <div class="toolbar">
+    <div class="left">
+      <button mat-icon-button>
+        <mat-icon class="mat-18">menu</mat-icon>
+      </button>
+      <a routerLink="/products" routerLinkActive="active-link">Apni Dukaan</a>
+    </div>
+
+    <div class="right">
+      <ul class="nav-items">
+        <li><a routerLink="/products" routerLinkActive="active-link">Products</a></li>
+        <li class="cart" >
+          <a routerLink="/cart" routerLinkActive="active-link">
+            <mat-icon class="mat-18">shopping_cart</mat-icon>
+          </a>
+        </li>
+        <li class="login" *ngIf="!isAuthenticated()">
+          <a routerLink="/login" routerLinkActive="active-link">Login</a>
+        </li>
+        <li class="login" *ngIf="isAuthenticated()">
+          <button (click)="logout()">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</mat-toolbar>

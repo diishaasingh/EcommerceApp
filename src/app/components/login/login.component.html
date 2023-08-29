@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Welcome to Apni Dukaan</h2>
+  <p>Login to Get access to your Orders, Wishlist and Recommendations</p>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div formGroupName="userData">
+      <p>
+        <mat-form-field appearance="outline" class="mat-form-field ">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" formControlName="username" placeholder="Username">
+          <mat-icon matSuffix></mat-icon>
+        </mat-form-field>
+        <mat-error *ngIf="isFieldInvalid('username')" class="error">Username is required</mat-error>
+      </p>
+      
+      <p>
+        <mat-form-field appearance="outline" class="mat-form-field ">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" placeholder="Password">
+          <mat-icon matSuffix></mat-icon>
+        </mat-form-field>
+        <mat-error *ngIf="isFieldInvalid('password')" class="error">Password is required</mat-error>
+      </p>
+    </div>
+    
+    <div class="example-button-row">
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" >Login</button>
+    </div>
+  </form>
+</div>
+<router-outlet></router-outlet>
