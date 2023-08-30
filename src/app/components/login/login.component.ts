@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
 
       this.authService.onLogin(userData).subscribe(
         response => {
+          console.log(response)
           this.handleLoginResponse(response);
         }
       );
