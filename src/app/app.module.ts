@@ -23,6 +23,7 @@ import { OrderSummaryComponent } from './components/order-summary/order-summary.
 import { ShippingDetailsComponent } from './components/shipping-details/shipping-details.component';
 import { PaymentDetailsComponent } from './components/payment-details/payment-details.component';
 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import {NgIf} from '@angular/common';
@@ -45,6 +46,7 @@ import { SuccessComponent } from './components/success/success.component';
   ],
   imports: [
     BrowserModule,
+    MatSnackBarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,

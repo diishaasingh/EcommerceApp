@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '..//..//auth-module/auth/auth.service';
 import { Router } from '@angular/router';
 import { IResponse } from 'src/app/models/response.model';
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   passwordTouched = false;
 
   constructor(
+    private snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router
@@ -51,10 +53,11 @@ export class LoginComponent implements OnInit {
         response => {
           console.log(response)
           this.handleLoginResponse(response);
+        },
+        error =>{
+          this.displayLoginError('Invalid login credentials','Dismiss')
         }
       );
-    } else {
-      console.log('Form is not valid');
     }
   }
 
@@ -72,8 +75,12 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/products']);
   }
 
-  isFieldInvalid(fieldName: string): boolean {
-    const control = this.loginForm.get(fieldName);
-    return !!control && control.invalid && (control.dirty || control.touched);
+  displayLoginError(message: string, action: string): void {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'center', 
+    });
   }
+  
 }

@@ -1,31 +1,23 @@
 <!-- <app-navbar></app-navbar> -->
-
 <div class="product-details-container" *ngIf="product">
-  <div class="product-details">
     <img [src]="product.image" alt="Product" class="product-image">
     <div class="product-info">
-      <h2>{{ product.title }}</h2>
-      <p><b>Price:</b> {{ product.price }} USD</p>
+      <h3>{{ product.title }}</h3>
       <p><b>Description:</b> {{ product.description }}</p>
       <p><b>Category:</b> {{ product.category }}</p>
+      <p><b>Price:</b> {{ product.price }} $</p>
       <p *ngIf="product.rating"><b>Rating:</b> {{ product.rating.rate }}</p>
       <p *ngIf="product.rating"><b>Rating Count:</b> {{ product.rating.count }}</p>
-      <br><br>
-      <div class="button1">
+
+      <div class="btn">
         <button mat-raised-button color="primary" type="addToCart" (click)="onAddToCartClick()">
          <p>Add to <mat-icon class="mat-18">shopping_cart</mat-icon></p> 
         </button>
-        <br>
-        <div class="message" *ngIf="showMessage">
-          <b>Product added to cart! 🎉🎉</b>
-        </div>
-      </div>
-      <br>
-      <div class="button2">
+
         <button mat-raised-button color="primary" type="viewCart" (click)="onViewCartClick()">
           <p>View  <mat-icon class="mat-18">shopping_cart</mat-icon></p>
         </button>
       </div>
+
     </div>
-  </div>
 </div>

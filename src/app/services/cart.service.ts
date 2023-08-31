@@ -19,4 +19,15 @@ export class CartService {
     return this.cart;
   }
   
+  clearCart() {
+    this.cart.clear();
+  }
+
+  getTotalItemCount(): number {
+    let totalCount = 0;
+    for (const frequency of this.cart.values()) {
+      totalCount += frequency;
+    }
+    return totalCount;
+  }
 }

@@ -1,28 +1,28 @@
+<h2>Your Cart</h2>
 <div class="cart-container">
-  <h2>Your Cart</h2>
   <div *ngIf="cart.size > 0; else emptyCart" class="cart">
     <div class="cart-item" *ngFor="let product of cart.keys()">
-      <div class="cart-item-details">
-        <img [src]="product.image" alt="Product" class="cart-item-image">
-        <div class="cart-item-info">
-          <h3>{{ product.title }}</h3>
-          <p>Price: {{ product.price }} USD</p>
+      <img [src]="product.image" alt="Product" class="cart-item-image">
+      <div class="cart-item-info">
+        <h4>{{ product.title }}</h4>
+        <p>Price: {{ product.price }} $</p>
+        <p>Total: {{ calculateTotal(product) }} $</p>
+        <div class="bind">
           <div class="counter">
             <button (click)="increment(product)">+</button>
             <p>{{ cart.get(product) }}</p>
             <button (click)="decrement(product)">-</button>
           </div>
-          <p>Total: {{ calculateTotal(product) }} USD</p>
-          <!-- <button mat-raised-button color="primary" type="button" (click)="buyNow(product)">Buy Now</button> -->
-          <br><br>
-          <button mat-raised-button color="primary" type="button" (click)="removeFromCart(product)">Remove from cart</button>
+          <div>
+            <button mat-raised-button color="primary" type="button" (click)="removeFromCart(product)">Remove</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="total">
     <button mat-raised-button color="primary" type="button" *ngIf="cart.size > 0" (click)="buyAll()">Place order</button>
-    <p>Grand total: {{ calculateGrandTotal() }} USD</p>
+    <p>Grand total: {{ calculateGrandTotal() }} $</p>
   </div>
   <ng-template #emptyCart>
     <p>Your cart is empty.</p>

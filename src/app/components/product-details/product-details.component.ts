@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 import { CartService } from 'src/app/services/cart.service';
 import { IProduct } from 'src/app/models/products.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-details',
@@ -15,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   showMessage: boolean = false; 
 
   constructor(
+    private snackBar: MatSnackBar,
     private actRoute: ActivatedRoute,
     private productService: ProductService,
     private cartService: CartService,
@@ -41,7 +43,8 @@ export class ProductDetailsComponent implements OnInit {
   onAddToCartClick() {
     if (this.product) {
       this.cartService.addToCart(this.product);
-      this.showMessage = true; 
+      console.log('added to cart')
+      this.displayAddToCart('Added to cart','Dismiss'); 
       setTimeout(() => {
         this.showMessage = false; 
       }, 2000); 
@@ -50,5 +53,13 @@ export class ProductDetailsComponent implements OnInit {
 
   onViewCartClick() {
     this.router.navigate(['/cart', { productId: this.id }]);
+  }
+
+  displayAddToCart(message: string, action: string): void {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right', 
+    });
   }
 }

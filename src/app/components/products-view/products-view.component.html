@@ -3,14 +3,17 @@
     <mat-card class="product-card">
       <img mat-card-image [src]="product.image" alt="Product" class="product-image">
       <mat-card-content class="product-details">
-        <h2>{{ product.title }}</h2>
-        <p>Price: {{ product.price }} USD</p>
-        <p>Category: {{ product.category }}</p>
-        <div class="product-actions">
-          <br><br>
-          <button mat-raised-button color="primary" (click)="goToProductDetails(product.id)" type="viewDetails">View Details</button>
+        <div class="title">
+          <h4>{{ product.title }}</h4>
+        </div>
+        <div class="para">
+          <p>Category: {{ product.category }}</p>
+          <p>Price: {{ product.price }} $</p>
         </div>
       </mat-card-content>
+      <div class="product-actions">
+        <button mat-raised-button color="primary" (click)="goToProductDetails(product.id)" type="viewDetails">View Details</button>
+      </div>
     </mat-card>
   </div>
 </div>
