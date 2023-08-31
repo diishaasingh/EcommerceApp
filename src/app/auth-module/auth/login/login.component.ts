@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AuthService } from '..//..//auth-module/auth/auth.service';
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { IResponse } from 'src/app/models/response.model';
 import { IUser } from 'src/app/models/users.model';
@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit {
     this.snackBar.open(message, action, {
       duration: 3000,
       verticalPosition: 'top',
-      horizontalPosition: 'center', 
+      horizontalPosition: 'right', 
     });
   }
   

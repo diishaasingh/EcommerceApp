@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '..//..//auth-module/auth/auth.service';
-import { CartService } from 'src/app/services/cart.service';
+import { CartService } from 'src/app/cart/cart.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,17 +14,21 @@ export class NavbarComponent {
   constructor(
     public authService: AuthService,
     private cartService: CartService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit() {
     this.updateCartItemCount();
+    this.cartService.cartItemUpdated.subscribe((count: number) => {
+      this.countCartItem = count; // Update the countCartItem variable
+    });
   }
 
   isAuthenticated(): boolean {
     return this.authService.isAuthenticated();
   }
-  logout(){
+  
+  logout() {
     this.authService.logout();
     this.cartService.clearCart();
     this.updateCartItemCount(); 

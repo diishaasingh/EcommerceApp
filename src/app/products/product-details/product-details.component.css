@@ -1,9 +1,6 @@
 .product-details-container {
   display: flex;
   margin: 3%;
-  align-items: center;
-  height: auto;
-  border-radius: 2px;
 }
   
 .product-image {

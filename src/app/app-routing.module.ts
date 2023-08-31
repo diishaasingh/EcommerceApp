@@ -1,9 +1,9 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductsViewComponent } from './components/products-view/products-view.component';
-import { ProductDetailsComponent } from './components/product-details/product-details.component';
-import { LoginComponent } from './components/login/login.component';
-import { CartComponent } from './components/cart/cart.component';
+import { ProductsViewComponent } from './products/products-view/products-view.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { LoginComponent } from './auth-module/auth/login/login.component';
+import { CartComponent } from './cart/cart/cart.component';
 import { authGuard } from './auth.guard';
 import { ShippingDetailsComponent } from './components/shipping-details/shipping-details.component';
 import { PaymentDetailsComponent } from './components/payment-details/payment-details.component';

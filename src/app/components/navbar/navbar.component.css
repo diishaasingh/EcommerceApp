@@ -12,6 +12,25 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+.active-link {
+  /* border-bottom: 3px solid transparent; */
+  color: yellow;
+  transition: border-bottom 0.3s ease;
+}
+
+.active-link:hover {
+  border-bottom-color: rgb(193, 70, 70);
+}
+
+.active-link:focus {
+  border-bottom-color: rgb(193, 70, 70);
+}
+
+.active-link.active {
+  border-bottom-color: rgb(193, 70, 70);
+}
+
+
 a {
   text-decoration: none;
   color: white;

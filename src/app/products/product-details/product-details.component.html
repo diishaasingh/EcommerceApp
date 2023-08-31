@@ -1,0 +1,16 @@
+<div >
+  <div >
+    <p>{{product.title}}</p>
+    <p><img [src]="product.image" alt="productImage"></p>
+    <p>{{product.description}}</p>
+    <p>{{product.price}}</p>
+    <p>{{product.rating.rate}}</p>
+    <p>{{product.rating.count}}</p>
+    
+  </div>
+  <div>
+    <button (click)="onAddToCartClick">Add to cart</button>
+    <button (click)="onViewCartClick">View Cart</button>
+  </div>
+
+</div>

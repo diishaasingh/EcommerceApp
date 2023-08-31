@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,EventEmitter } from '@angular/core';
 import { IProduct } from '../models/products.model';
 
 @Injectable({
@@ -6,6 +6,8 @@ import { IProduct } from '../models/products.model';
 })
 export class CartService {
   private cart: Map<IProduct, number> = new Map(); // Key: product, Value: frequency
+  cartItemUpdated: EventEmitter<number> = new EventEmitter<number>(); // Event emitter
+
 
   addToCart(product: IProduct) {
     if (this.cart.has(product)) {
@@ -13,6 +15,7 @@ export class CartService {
     } else {
       this.cart.set(product, 1);
     }
+    this.cartItemUpdated.emit(this.getTotalItemCount());
   }
 
   getCartItems(): Map<IProduct, number> {
@@ -21,6 +24,7 @@ export class CartService {
   
   clearCart() {
     this.cart.clear();
+    this.cartItemUpdated.emit(this.getTotalItemCount());
   }
 
   getTotalItemCount(): number {
