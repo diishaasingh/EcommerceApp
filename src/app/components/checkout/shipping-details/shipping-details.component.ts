@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,EventEmitter, Output, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IShippingData } from 'src/app/models/shippingData.model';
@@ -9,6 +9,7 @@ import { IShippingData } from 'src/app/models/shippingData.model';
   styleUrls: ['./shipping-details.component.css']
 })
 export class ShippingDetailsComponent implements OnInit {
+  @Output() shippingDataSubmitted = new EventEmitter<IShippingData>();
   shippingDetailsForm!: FormGroup;
 
   constructor(
@@ -30,9 +31,7 @@ export class ShippingDetailsComponent implements OnInit {
   onSubmit(): void {
     if (this.shippingDetailsForm.valid) {
       const shippingData: IShippingData = this.shippingDetailsForm.get('shippingData')?.value;
-      this.router.navigate(['/order-summary'], {
-        queryParams: { shippingData: JSON.stringify(shippingData) }
-      });
+      this.shippingDataSubmitted.emit(shippingData);
     }
   }
 

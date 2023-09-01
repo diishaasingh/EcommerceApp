@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
@@ -19,9 +20,9 @@ import { ProductsViewComponent } from './products/products-view/products-view.co
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartComponent } from './cart/cart/cart.component';
-import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
-import { ShippingDetailsComponent } from './components/shipping-details/shipping-details.component';
-import { PaymentDetailsComponent } from './components/payment-details/payment-details.component';
+import { OrderSummaryComponent } from './components/checkout/order-summary/order-summary.component';
+import { ShippingDetailsComponent } from './components/checkout/shipping-details/shipping-details.component';
+import { PaymentDetailsComponent } from './components/checkout/payment-details/payment-details.component';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
@@ -29,6 +30,7 @@ import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angula
 import {NgIf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import { SuccessComponent } from './components/success/success.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -43,10 +45,12 @@ import { SuccessComponent } from './components/success/success.component';
     ShippingDetailsComponent,
     PaymentDetailsComponent,
     SuccessComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
     MatSnackBarModule,
+    MatRadioModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,

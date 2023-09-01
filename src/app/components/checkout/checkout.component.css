@@ -1,0 +1,10 @@
+.checkout-main{
+    display: flex;
+    justify-content: space-around;
+}
+.all-details{
+    width: 50%;
+}
+.order-summary{
+    width: 40%;
+}

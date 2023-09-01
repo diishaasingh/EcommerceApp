@@ -13,23 +13,10 @@
   font-weight: bold;
 }
 .active-link {
-  /* border-bottom: 3px solid transparent; */
   color: yellow;
+  border-bottom: 3px solid transparent;
   transition: border-bottom 0.3s ease;
 }
-
-.active-link:hover {
-  border-bottom-color: rgb(193, 70, 70);
-}
-
-.active-link:focus {
-  border-bottom-color: rgb(193, 70, 70);
-}
-
-.active-link.active {
-  border-bottom-color: rgb(193, 70, 70);
-}
-
 
 a {
   text-decoration: none;
@@ -46,9 +33,20 @@ a {
   gap: 1.5rem;
 }
 
-sup{
-  color: white;
+.cart-sup{
+  position: relative;
+}
+.cart {
+  position: absolute;
+  top: -8px; 
+  right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
   background-color: red;
-  height: 10px;
-  width: 50px;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 50%;
 }

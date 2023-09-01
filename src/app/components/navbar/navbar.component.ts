@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '..//..//auth-module/auth/auth.service';
-import { CartService } from 'src/app/cart/cart.service';
+import { CartService } from 'src/app/services/cart.service';
 import { Router } from '@angular/router';
 
 @Component({

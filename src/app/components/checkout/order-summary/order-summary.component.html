@@ -1,0 +1,25 @@
+<div class="order-summary">
+  <h2>Order Summary</h2>
+
+  <div *ngIf="shippingData">
+    <h4>Shipping Details:</h4>
+    <p>Name: {{ shippingData.name }}</p>
+    <p>Address: {{ shippingData.address }}</p>
+    <p>Pincode: {{ shippingData.pincode }}</p>
+    <p>Contact: {{ shippingData.contact }}</p>
+  </div>
+  <hr>
+
+  <h4>Order Details:</h4>
+  <div *ngFor="let product of cartItemsKeys()" class="order-item">
+    <h5>{{ product.title }}</h5>
+    <p>Price: {{ product.price }} $</p>
+    <p>Quantity: {{ getProductFrequency(product) }}</p>
+    <p>Total: {{ calculateTotal(product) }} $</p>
+  </div>
+
+  <div class="total">
+    <p><b>Grand total:</b> {{ calculateGrandTotal() }} $</p>
+    <button mat-raised-button color="primary" type="button" (click)="confirmOrder()">Confirm Order</button>
+  </div>
+</div>

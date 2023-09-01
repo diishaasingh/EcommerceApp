@@ -5,10 +5,11 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
 import { LoginComponent } from './auth-module/auth/login/login.component';
 import { CartComponent } from './cart/cart/cart.component';
 import { authGuard } from './auth.guard';
-import { ShippingDetailsComponent } from './components/shipping-details/shipping-details.component';
-import { PaymentDetailsComponent } from './components/payment-details/payment-details.component';
-import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
-import { SuccessComponent } from './components/success/success.component';
+// import { ShippingDetailsComponent } from './components/checkout/shipping-details/shipping-details.component';
+// import { PaymentDetailsComponent } from './components/checkout/payment-details/payment-details.component';
+// import { OrderSummaryComponent } from './components/checkout/order-summary/order-summary.component';
+// import { SuccessComponent } from './components/success/success.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   {path:'login', component:LoginComponent},
@@ -16,10 +17,11 @@ const routes: Routes = [
   {path:'products', component:ProductsViewComponent} ,
   {path:'product-details/:id', component: ProductDetailsComponent},
   {path:'cart', component:CartComponent},
-  {path:'shipping-details',component:ShippingDetailsComponent,canActivate:[authGuard]},
-  {path: 'payment-details', component: PaymentDetailsComponent },
-  {path:'order-summary',component:OrderSummaryComponent},
-  {path:'success',component:SuccessComponent}
+  // {path:'shipping-details',component:ShippingDetailsComponent,canActivate:[authGuard]},
+  // {path: 'payment-details', component: PaymentDetailsComponent },
+  // {path:'order-summary',component:OrderSummaryComponent},
+  // {path:'success',component:SuccessComponent},
+  {path: 'checkout',component:CheckoutComponent}
 ];
 
 @NgModule({

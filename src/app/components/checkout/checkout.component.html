@@ -1,0 +1,13 @@
+<div class="checkout-main">
+    <div class="all-details">
+        <div class="shipping-details">
+            <app-shipping-details (shippingDataSubmitted)="updateOrderSummary($event)"></app-shipping-details>
+        </div>
+        <div class="payment-details">
+            <app-payment-details></app-payment-details>
+        </div>
+    </div>
+    <div class="order-summary">
+        <app-order-summary [shippingData]="shippingData"></app-order-summary>
+    </div>
+</div>

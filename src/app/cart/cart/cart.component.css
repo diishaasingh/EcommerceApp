@@ -28,7 +28,7 @@ h2{
   margin-top: 20px;
 }
 .bind{
-  display: block;
+  display: flex;
   justify-content: space-around;
   margin-top: 25%;
 }

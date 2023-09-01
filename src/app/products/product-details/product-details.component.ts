@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from 'src/app/products/product.service';
-import { CartService } from 'src/app/cart/cart.service';
+import { ProductService } from 'src/app/services/product.service';
+import { CartService } from 'src/app/services/cart.service';
 import { IProduct } from 'src/app/models/products.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 

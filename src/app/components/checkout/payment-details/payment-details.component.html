@@ -1,0 +1,37 @@
+<form [formGroup]="paymentForm" class="payment-form">
+  <mat-radio-group formControlName="paymentOption">
+    <mat-radio-button value="credit">Credit</mat-radio-button>
+    <mat-radio-button value="debit">Debit</mat-radio-button>
+    <mat-radio-button value="upi">UPI</mat-radio-button>
+  </mat-radio-group>
+  
+  <div *ngIf="paymentForm.get('paymentOption')?.value === 'credit' || paymentForm.get('paymentOption')?.value === 'debit'" class="card-fields">
+    <!-- Card Number Field -->
+    <mat-form-field class="mat-form-field">
+      <input matInput id="card-number" formControlName="cardNumber" required placeholder="Card Number">
+      <mat-label>Card Number</mat-label>
+    </mat-form-field>
+
+    <!-- Expiration Date Field -->
+    <mat-form-field class="mat-form-field">
+      <input matInput id="expiration-date" formControlName="expirationDate" required placeholder="MM/YYYY">
+      <mat-label>Expiration Date</mat-label>
+    </mat-form-field>
+
+    <!-- CVV Field -->
+    <mat-form-field class="mat-form-field">
+      <input matInput id="cvv" formControlName="cvv" required placeholder="CVV">
+      <mat-label>CVV</mat-label>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="paymentForm.get('paymentOption')?.value === 'upi'" class="upi-field">
+    <!-- UPI ID Field -->
+    <mat-form-field class="mat-form-field">
+      <input matInput id="upi-id" formControlName="upiId" required placeholder="Your UPI ID">
+      <mat-label>Your UPI ID</mat-label>
+    </mat-form-field>
+  </div>
+  
+  <button mat-raised-button color="primary" type="submit" [disabled]="paymentForm.invalid" class="proceed-button">Proceed</button>
+</form>
